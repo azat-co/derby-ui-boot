@@ -29,6 +29,9 @@ exports.select = function(name) {
 }
 
 exports._clickTab = function(e, el) {
-  $(el).addClass('active')
-  this.select(this.model.at(el).get('name'))
+  $('.nav-tabs').find('li.active').removeClass('active');
+  $('.tab-content').find('.active').removeClass('active');
+  $(el).parent().addClass('active');
+  $('.tab-content').find('.tab_' + $(el).attr('data-target')).addClass('active');
+  this.select(this.model.at(el).get('name'));
 }

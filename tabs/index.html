@@ -2,7 +2,7 @@
   <ul class="nav nav-tabs">
     {#each :self.tabs}
       <li class="{#if equal(.name, :self.current)}active{/}">
-        <a x-bind="click: _clickTab">{.title}</a>
+        <a x-bind="click: _clickTab" data-target="{.name}">{.title}</a>
       </li>
     {/}
   </ul>
@@ -12,6 +12,6 @@
   </div>
 
 <tab: nonvoid>
-  <div class="tab-pane {#if :self.active}active{/}">
+  <div class="tab-pane {#if :self.active}active{/} tab_{.name}">
     {{@content}}
   </div>
