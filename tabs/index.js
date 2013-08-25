@@ -29,5 +29,6 @@ exports.select = function(name) {
 }
 
 exports._clickTab = function(e, el) {
+  $(el).addClass('active')
   this.select(this.model.at(el).get('name'))
 }
